@@ -18,6 +18,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
+// studentsのCRUDのルーティング
+Route::get('/students', 'App\Http\Controllers\StudentController@index');
+Route::post('/students', 'App\Http\Controllers\StudentController@store');
+Route::get('/students/{student:id}', 'App\Http\Controllers\StudentController@edit');
+Route::patch('/students/{student:id}', 'App\Http\Controllers\StudentController@update');
+Route::delete('/students/{student:id}', 'App\Http\Controllers\StudentController@delete');
+
+
 // ログインと新規登録のルーティング
 Route::post('/register', 'App\Http\Controllers\AuthController@register');
 Route::post('/login', 'App\Http\Controllers\AuthController@login');

@@ -14,10 +14,19 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('students')->insert([
-            'name' => '山田太郎',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
+        $students = [
+            [ 'name' => '山田一郎' ],
+            [ 'name' => '山田二郎' ],
+            [ 'name' => '山田三郎' ],
+            [ 'name' => '山田四郎' ],
+            [ 'name' => '山田五郎' ],
+        ];
+        foreach ($students as $student) {
+            DB::table('students')->insert([
+                'name' => $student['name'],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+        }
     }
 }

@@ -25,6 +25,14 @@ class StudentController extends Controller
         ], 201);
     }
 
+    // 指定のデータのみ取得
+    public function edit($id) {
+        $student = Student::find($id);
+        return response()->json([
+            'data' => $student
+        ], 200);
+    }
+
     // 更新
     public function update(Request $request, Student $student) {
         $student->fill($request->all());
