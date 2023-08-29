@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// 追記
+use App\Http\Requests\StudentRequest;
 use App\Models\Student;
 
 class StudentController extends Controller
@@ -15,8 +17,8 @@ class StudentController extends Controller
         ], 200);
     }
 
-    // 登録
-    public function store(Request $request) {
+    // RequestをStudentRequestに変更
+    public function store(StudentRequest $request) {
         $student = new Student();
         $student->name = $request->name;
         $student->save();
